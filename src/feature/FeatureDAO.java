@@ -13,6 +13,12 @@ import java.util.List;
 
 class FeatureDAO {
 
+    private static final FeatureDAO INSTANCE = new FeatureDAO();
+
+    static FeatureDAO getInstance() {
+        return INSTANCE;
+    }
+
     private static final String SELECT_ALL = "SELECT" +
             " * FROM features ";
 
@@ -23,7 +29,7 @@ class FeatureDAO {
             " WHERE font = ? " +
             " COLLATE NOCASE )";
 
-    static List<Feature> getAllFeatures() {
+    List<Feature> getAllFeatures() {
 
         String sql = SELECT_ALL;
         List<Feature> featureList = new ArrayList<>();
@@ -48,7 +54,7 @@ class FeatureDAO {
         return featureList;
     }
 
-    static List<Feature> getFeaturesByFont(String font) {
+    List<Feature> getFeaturesByFont(String font) {
 
         String sql = SELECT_FEATURES_BY_FONT;
         List<Feature> featureList = new ArrayList<>();

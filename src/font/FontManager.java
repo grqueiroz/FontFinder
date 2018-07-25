@@ -12,8 +12,10 @@ public class FontManager {
         return INSTANCE;
     }
 
+    private FontManagerImpl fontManagerImpl = FontManagerImpl.getInstance();
+
     public List<Font> getAllFonts() {
-        return FontManagerImpl.getAllFonts();
+        return fontManagerImpl.getAllFonts();
     }
 
 }

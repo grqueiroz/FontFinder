@@ -12,10 +12,16 @@ import java.util.List;
 
 class FontDAO {
 
+    private static final FontDAO INSTANCE = new FontDAO();
+
+    static FontDAO getInstance() {
+        return INSTANCE;
+    }
+
     private static final String SELECT_ALL = "SELECT" +
             " * FROM fonts ";
 
-    static List<Font> getAllFonts() {
+    List<Font> getAllFonts() {
 
         String sql = SELECT_ALL;
         List<Font> fontList = new ArrayList<>();

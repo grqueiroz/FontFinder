@@ -6,8 +6,16 @@ import java.util.List;
 
 class FontManagerImpl {
 
-    static List<Font> getAllFonts() {
-        return FontDAO.getAllFonts();
+    private static final FontManagerImpl INSTANCE = new FontManagerImpl();
+
+    public static FontManagerImpl getInstance() {
+        return INSTANCE;
+    }
+    
+    private FontDAO fontDAO = FontDAO.getInstance();
+    
+    List<Font> getAllFonts() {
+        return fontDAO.getAllFonts();
     }
 
 }
