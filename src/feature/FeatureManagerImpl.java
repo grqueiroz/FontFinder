@@ -6,12 +6,20 @@ import java.util.List;
 
 class FeatureManagerImpl {
 
-    static List<Feature> getAllFeatures() {
-        return FeatureDAO.getAllFeatures();
+    private static final FeatureManagerImpl INSTANCE = new FeatureManagerImpl();
+
+    public static FeatureManagerImpl getInstance() {
+        return INSTANCE;
     }
 
-    static List<Feature> getFeaturesByFont(String font) {
-        return FeatureDAO.getFeaturesByFont(font);
+    private FeatureDAO featureDAO = FeatureDAO.getInstance();
+
+    List<Feature> getAllFeatures() {
+        return featureDAO.getAllFeatures();
+    }
+
+    List<Feature> getFeaturesByFont(String font) {
+        return featureDAO.getFeaturesByFont(font);
     }
 
 }

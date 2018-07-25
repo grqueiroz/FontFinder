@@ -12,12 +12,14 @@ public class FeatureManager {
         return INSTANCE;
     }
 
+    private FeatureManagerImpl featureManagerImpl = FeatureManagerImpl.getInstance();
+
     public List<Feature> getAllFeatures() {
-        return FeatureManagerImpl.getAllFeatures();
+        return featureManagerImpl.getAllFeatures();
     }
 
     public List<Feature> getFeaturesByFont(String font) {
-        return FeatureManagerImpl.getFeaturesByFont(font);
+        return featureManagerImpl.getFeaturesByFont(font);
     }
 
 }
