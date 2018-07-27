@@ -16,7 +16,7 @@ public class JDBCHandler {
         Connection connection = null;
         try {
             // db parameters
-            String url = "jdbc:sqlite:FontFinder.db";
+            String url = "jdbc:sqlite:C:\\Users\\grque\\FontFinder\\FontFinder.db";
             // create a connection to the database
             connection = DriverManager.getConnection(url);
 
